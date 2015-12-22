@@ -1,5 +1,5 @@
 Name:		freshplayerplugin
-Version:	0.3.2
+Version:	0.3.4
 Release:	1%{?dist}
 Summary:	PPAPI-host NPAPI-plugin adapter
 
@@ -51,7 +51,7 @@ make %{?_smp_mflags}
 popd
 
 %install
-install -Dm 755 build/libfreshwrapper-pepperflash.so %{buildroot}%{_libdir}/mozilla/plugins/libfreshwrapper-pepperflash.so
+install -Dm 755 build/libfreshwrapper-flashplayer.so %{buildroot}%{_libdir}/mozilla/plugins/libfreshwrapper-flashplayer.so
 install -Dm 644 data/freshwrapper.conf.example %{buildroot}%{_sysconfdir}/freshwrapper.conf
 find %{buildroot} -name "*" -exec chrpath --delete {} \; 2>/dev/null
 
@@ -62,11 +62,17 @@ find %{buildroot} -name "*" -exec chrpath --delete {} \; 2>/dev/null
 %files
 %doc ChangeLog README.md doc/*
 %license LICENSE COPYING
-%{_libdir}/mozilla/plugins/libfreshwrapper-pepperflash.so
+%{_libdir}/mozilla/plugins/libfreshwrapper-flashplayer.so
 %{_sysconfdir}/freshwrapper.conf
 
 
 %changelog
+* Mon Dec 21 2015 Leigh Scott <leigh123linux@googlemail.com> - 0.3.4-2
+- update to 0.3.4
+
+* Sun Oct 11 2015 Leigh Scott <leigh123linux@googlemail.com> - 0.3.3-1
+- update to 0.3.3
+
 * Sun Aug 23 2015 Leigh Scott <leigh123linux@googlemail.com> - 0.3.2-1
 - update to 0.3.2
 
